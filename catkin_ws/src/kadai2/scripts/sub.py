@@ -44,7 +44,7 @@ def cb_dist(message):
     plt.pause(5)
 #サブスクライバーの設定
 if __name__ == '__main__':
-    rospy.init_node('sub_key')
+    rospy.init_node('sub_node')
     sub = rospy.Subscriber('pub_key',String,cb_key)
     sub2 = rospy.Subscriber('pub_dist',Int32,cb_dist)
     rospy.spin()

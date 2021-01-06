@@ -22,7 +22,7 @@ def pub_data():
 def exit_window():
     sys.exit()
 #パブリッシャーの設定
-rospy.init_node('pub_key')
+rospy.init_node('pub_node')
 pub = rospy.Publisher('pub_key',String,queue_size = 1)
 pub2 = rospy.Publisher('pub_dist',Int32,queue_size = 1)
 rate = rospy.Rate(10)

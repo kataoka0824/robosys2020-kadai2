@@ -5,6 +5,7 @@ from std_msgs.msg import String
 import tkinter as tk
 import sys
 
+#データの送信
 def pub_data():
     key_inp=String()
     key_inp.data=entry_axis.get()
@@ -17,8 +18,10 @@ def pub_data():
     pub2.publish(dist)
     entry_axis.delete(0,tk.END)
     entry_dist.delete(0,tk.END)
+#ウィンドウを閉じる
 def exit_window():
     sys.exit()
+#パブリッシャーの設定
 rospy.init_node('pub_key')
 pub = rospy.Publisher('pub_key',String,queue_size = 1)
 pub2 = rospy.Publisher('pub_dist',Int32,queue_size = 1)
@@ -40,10 +43,3 @@ button_pub.grid(row=0,column=4)
 button_exit=tk.Button(root,text="閉じる",command=exit_window)
 button_exit.grid(row=1,column=2)
 root.mainloop()
-"""while not rospy.is_shutdown():
-    key_inp=String()
-    key_inp.data,n=input("key[x,y,z] distance;").split()
-    n=int(n)
-    pub.publish(key_inp)
-    pub2.publish(n)
-    rate.sleep()"""

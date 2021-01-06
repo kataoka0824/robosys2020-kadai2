@@ -27,3 +27,5 @@
 - サブスクライバ側のグラフでしばらくたつと反応しなくなります。
 ## ノード
 ![robosys-kadai2](https://user-images.githubusercontent.com/50820783/103738987-40c56100-5038-11eb-814b-8962e996952b.png)
+>/pub_node、/sub_nodeはそれぞれパブリッシャ、サブスクライバのノードです。
+/pub_keyがx,y,zの文字データ、/pub_distが距離データになります。

@@ -10,12 +10,14 @@ axis="n"
 pos_x=[0]
 pos_y=[0]
 pos_z=[0]
+#x,y,zの文字の取得
 def cb_key(message):
-    global axis,role
+    global axis
     rospy.loginfo(message.data)
     axis=message.data
     print(axis)
     plt.close()
+#距離データの取得、座標の加工、表示
 def cb_dist(message):
     rospy.sleep(0.02)
     global axis,position
@@ -40,10 +42,9 @@ def cb_dist(message):
     ax.plot(pos_x[-1:],pos_y[-1:],pos_z[-1:],color="c",marker="o")
     plt.draw()
     plt.pause(5)
-    #plt.clf()
-
+#サブスクライバーの設定
 if __name__ == '__main__':
-    rospy.init_node('sub_key')
+    rospy.init_node('sub_node')
     sub = rospy.Subscriber('pub_key',String,cb_key)
     sub2 = rospy.Subscriber('pub_dist',Int32,cb_dist)
     rospy.spin()
